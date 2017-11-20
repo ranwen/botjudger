@@ -1,0 +1,9 @@
+result/
+code/
+runner/satori.exe
+runner/satori.tmp
+runner/koishi.exe
+runner/koishi.tmp
+runner/judger
+out.txt
+config.php
