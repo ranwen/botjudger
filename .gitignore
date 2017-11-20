@@ -4,6 +4,10 @@ runner/satori.exe
 runner/satori.tmp
 runner/koishi.exe
 runner/koishi.tmp
-runner/judger
+runner/judge.exe
+runner/judge
+judged.exe
+source/
 out.txt
 config.php
+MinGW64/
