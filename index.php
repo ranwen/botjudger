@@ -7,7 +7,7 @@ function getfiles($gg){
 	{
 		if($afile=='.'||$afile=='..') continue; 
 		$nowf=substr($afile,0,strlen($afile)-4);
-		echo "<a href=\"./code/$gg/$nowf.cpp\">".$nowf."</a><br/>";
+		echo "<a href=\"./source/$gg/$nowf.cpp\">".$nowf."</a><br/>";
 	} 
 }
 
