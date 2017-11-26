@@ -26,10 +26,14 @@ else
 </body>
 <script>
 
-img1 = new Image()
-        img2 = new Image()
-        img1.src = "./img/img1.png"
-        img2.src = "./img/img2.png"
+		image_wall = new Image()
+        image_grass = new Image()
+        image_satori = new Image()
+        image_koishi = new Image()
+        image_wall.src = "./img/wall.png"
+        image_grass.src = "./img/grass.png"
+        image_satori.src = "./img/satori.png"
+        image_koishi.src = "./img/koishi.png"
   /*  const init = function (img1src, img2src, rows) {
         let i = 0
         img1.onload = function () {
@@ -58,16 +62,17 @@ const start = function (gg) {
     heigh=gg[0].height;
     widt=gg[0].width;
     for (let i = 0; i < widt*heigh; i++) {
-        if (string.charAt(i) === '#')
-            ctx.drawImage(img1, Math.floor(i % widt) * 32, Math.floor(i / heigh) * 32, 32, 32)
-        else if (string.charAt(i) === '.'){
-            ctx.drawImage(img2, Math.floor(i % widt) * 32, Math.floor(i / heigh) * 32, 32, 32)
+        if (string.charAt(i) === '#'){
+            ctx.drawImage(image_wall, Math.floor(i % widt) * 32, Math.floor(i / heigh) * 32, 32, 32)
+        }
+		else if (string.charAt(i) === '.'){
+            ctx.drawImage(image_grass, Math.floor(i % widt) * 32, Math.floor(i / heigh) * 32, 32, 32)
         }
         else if (string.charAt(i) === 'S'){
-            ctx.drawImage(img3, Math.floor(i % widt) * 32, Math.floor(i / heigh) * 32, 32, 32)
+            ctx.drawImage(image_satori, Math.floor(i % widt) * 32, Math.floor(i / heigh) * 32, 32, 32)
         }
-        else if (string.charAt(i) === 'T'){
-            ctx.drawImage(img4, Math.floor(i % widt) * 32, Math.floor(i / heigh) * 32, 32, 32)
+        else if (string.charAt(i) === 'K'){
+            ctx.drawImage(image_koishi, Math.floor(i % widt) * 32, Math.floor(i / heigh) * 32, 32, 32)
         }
     }
 }
