@@ -36,7 +36,8 @@ getfiles("koishi");
 <br/><br/><br/>
 <a href='./upload.php'>upload code</a><br/>
 <a href='./create.php'>create game</a><br/>
-
+进入游戏<a href='./koishi.php'>koishi</a><a href='./satori.php'>satori</a>
+<br/>
 
 <br/>map<br/>
 <?php

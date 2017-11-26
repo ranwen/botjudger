@@ -1,0 +1,20 @@
+loading parameters
+Round limit:40
+Map:example_map.txt
+Satori:human Koishi:human
+successful
+game start
+S..#.
+.#.#.
+##...
+...##
+.#..K
+
+round 1:
+S..#.
+.#.#.
+##...
+...##
+.#..K
+game over
+Both Bad move!

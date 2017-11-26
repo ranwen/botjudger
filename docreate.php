@@ -27,6 +27,14 @@ if(!isStringLegal($a) || !isStringLegal($b))
 	exit(0);
 }
 $map=$_POST['map'];
-file_put_contents("task.txt","$a $b $key $map\n",FILE_APPEND);
+if($a=='human' || $b=='human')
+{
+    $pass=rand(100,999);
+    file_put_contents("humantask.txt","$a $b $key $map $pass\n",FILE_APPEND);
+}
+else
+    file_put_contents("task.txt","$a $b $key $map\n",FILE_APPEND);
 echo "已创建 KEY为".$key;
+if($a=='human' || $b=='human')
+echo "密码为$pass";
 ?>
