@@ -63,16 +63,16 @@ const start = function (gg) {
     widt=gg[0].width;
     for (let i = 0; i < widt*heigh; i++) {
         if (string.charAt(i) === '#'){
-            ctx.drawImage(image_wall, Math.floor(i % widt) * 32, Math.floor(i / heigh) * 32, 32, 32)
+            ctx.drawImage(image_wall, Math.floor(i % widt) * 32, Math.floor(i / widt) * 32, 32, 32)
         }
 		else if (string.charAt(i) === '.'){
-            ctx.drawImage(image_grass, Math.floor(i % widt) * 32, Math.floor(i / heigh) * 32, 32, 32)
+            ctx.drawImage(image_grass, Math.floor(i % widt) * 32, Math.floor(i / widt) * 32, 32, 32)
         }
         else if (string.charAt(i) === 'S'){
-            ctx.drawImage(image_satori, Math.floor(i % widt) * 32, Math.floor(i / heigh) * 32, 32, 32)
+            ctx.drawImage(image_satori, Math.floor(i % widt) * 32, Math.floor(i / widt) * 32, 32, 32)
         }
         else if (string.charAt(i) === 'K'){
-            ctx.drawImage(image_koishi, Math.floor(i % widt) * 32, Math.floor(i / heigh) * 32, 32, 32)
+            ctx.drawImage(image_koishi, Math.floor(i % widt) * 32, Math.floor(i / widt) * 32, 32, 32)
         }
     }
 }
