@@ -38,6 +38,7 @@ getfiles("koishi");
 <a href='./create.php'>create game</a><br/>
 <a href='./satori.php'>join as satori</a><br/>
 <a href='./koishi.php'>join as koishi</a><br/>
+<a href='./watch.php'>watch</a><br/>
 
 <br/>map<br/>
 <?php
