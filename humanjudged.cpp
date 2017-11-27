@@ -16,8 +16,10 @@ int main()
 		ifstream infile; 
 		infile.open("humantask.txt");
 		string a,b,c,d,e;
+		bool have_task_flag=false; 
     	while(infile>>a>>b>>c>>d>>e)
     	{
+    		have_task_flag=true; 
 			#if defined(__linux__)
 			system("cp ./code/koishi/"+a+".exe ./humanrunner/koishi.exe");
 			system("cp ./code/satori/"+b+".exe ./humanrunner/satori.exe");
@@ -32,6 +34,7 @@ int main()
     	infile.close(); 
     	ofstream fileout("humantask.txt",ios::trunc);
     	fileout.close();
+    	if(have_task_flag)
 		cout<<"DONE"<<endl;
 		#if defined(__linux__)
 		system("sleep 15s");

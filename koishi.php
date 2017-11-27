@@ -98,54 +98,59 @@ function GetQueryString(name)
      var r = window.location.search.substr(1).match(reg);
      if(r!=null)return  unescape(r[2]); return null;
 }
-    function fuck()
-    {
-        $.get({url:"humanrunner/koishimap.txt",
-        success : function(data)
-        {
-console.log(data);
-$("nowround").text(data[0].round);
-$("maxround").text(data[0].maxround);
-        start(data);
-        },
-error: function (jqXHR, textStatus, errorThrown) 
+function nextRound()
 {
-$("#mess").text("游戏结束");
-}
+    $.get({url:"humanrunner/koishimap.txt",
+    success : function(data)
+    {
+		console.log(data);
+		dataJson=JSON.parse(data);
+		$("#nowround").text(dataJson[0].round);
+		$("#maxround").text(dataJson[0].maxround);
+        start(data);
+    },
+	error: function (jqXHR, textStatus, errorThrown) 
+	{
+		$("#mess").text("游戏结束");
+	}
 		});
-        setTimeout("fuck()", 1000);
-    }
-    fuck();
-	var gg=array();
-	gg[48]='W';
-	gg[49]='S';
-	gg[50]='A';
-	gg[51]='D';
-	gg[52]='STAY';
-	$("cz").text("当前操作:STAY");
-	var nowzt=52;
+    setTimeout("nextRound()", 1000);
+}
+    nextRound();
+	var choices=[];
+	choices[48]='W';
+	choices[49]='S';
+	choices[50]='A';
+	choices[51]='D';
+	choices[52]='STAY';
+	$("#cz").text("当前操作:STAY");
+	var currentChoice=52;
     window.document.onkeydown = disableRefresh;
 function disableRefresh(evt){
-evt = (evt) ? evt : window.event
-if (evt.keyCode) {
-	ggg=evt.keyCode
-	if(ggg==87) evt.keyCode=48
-	if(ggg==83) evt.keyCode=49
-	if(ggg==65) evt.keyCode=50
-	if(ggg==68) evt.keyCode=51
-	if(ggg==32) evt.keyCode=52
-   if(evt.keyCode >= 48 && evt.keyCode<=52){
-	   $("cz").text("当前操作:"+gg[evt.keyCode]);
-    $.post({url:"submit.php",
-    data:{"passwd": GetQueryString("passwd"),"type":"koishi","nr":evt.keyCode-48},success:function(data)
-    {
-        console.log(data);
-        $("#mess").text(data);
-    }
-});
+	evt = (evt) ? evt : window.event
+	if (evt.keyCode) {
+		keycode=evt.keyCode
+		if(keycode==87) currentChoice=48
+		if(keycode==83) currentChoice=49
+		if(keycode==65) currentChoice=50
+		if(keycode==68) currentChoice=51
+		if(keycode==32) currentChoice=52
+		if(keycode >= 48 && keycode<=52){
+			currentChoice=keycode
+		}
+		$("#cz").text("当前操作:"+choices[currentChoice]);
+		if(keycode==13)
+		{
+			$.post({url:"submit.php",
+			data:{"passwd": GetQueryString("passwd"),"type":"koishi","nr":currentChoice-48},success:function(data)
+			{
+				console.log(data);
+				$("#mess").text(data);
+			}
+			});
+		}
      //do something
-   }
-}
+	}
 }
     </script>
     <?php
