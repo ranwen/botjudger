@@ -1,7 +1,7 @@
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link href="./css/global.css" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="./css/global.css" rel="stylesheet">
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <?php
 $pa='';
@@ -21,8 +21,13 @@ Password<input name='passwd'/>
 }
 else
 {
-    ?>    <body>
-    <canvas id="myCanvas" height="500" width="500"></canvas><div id="mess"></div>
+    ?>    
+    <body>
+    <canvas id="myCanvas" height="500" width="500"></canvas>
+	<div id="nowround"></div>
+	<div id="maxround"></div>
+	<div id="cz"></div>
+	<div id="mess"></div>
 </body>
 <script>
 
@@ -50,17 +55,14 @@ else
         }
     }
 */
-const start = function (gg) {
-    gg=JSON.parse(gg)
-    let canvas = document.getElementById('myCanvas')
-    let ctx = canvas.getContext('2d')
-    let string = ''/*
-    for (let i = 0; i < rows * rows; i++) {
-        string += Math.random() > 0.495 ? '#' : '.'
-    }*///console.log(gg[0].map);
-    string=gg[0].map;
-    heigh=gg[0].height;
-    widt=gg[0].width;
+	const start = function (gg) {
+    	gg=JSON.parse(gg)
+    	let canvas = document.getElementById('myCanvas')
+    	let ctx = canvas.getContext('2d')
+    	let string = ''
+    	string=gg[0].map;
+    	heigh=gg[0].height;
+    	widt=gg[0].width;
     for (let i = 0; i < widt*heigh; i++) {
         if (string.charAt(i) === '#'){
             ctx.drawImage(image_wall, Math.floor(i % widt) * 32, Math.floor(i / widt) * 32, 32, 32)
@@ -102,6 +104,8 @@ function GetQueryString(name)
         success : function(data)
         {
 console.log(data);
+$("nowround").text(data[0].round);
+$("maxround").text(data[0].maxround);
         start(data);
         },
 error: function (jqXHR, textStatus, errorThrown) 
@@ -112,11 +116,26 @@ $("#mess").text("游戏结束");
         setTimeout("fuck()", 1000);
     }
     fuck();
+	var gg=array();
+	gg[48]='W';
+	gg[49]='S';
+	gg[50]='A';
+	gg[51]='D';
+	gg[52]='STAY';
+	$("cz").text("当前操作:STAY");
+	var nowzt=52;
     window.document.onkeydown = disableRefresh;
 function disableRefresh(evt){
 evt = (evt) ? evt : window.event
 if (evt.keyCode) {
+	ggg=evt.keyCode
+	if(ggg==87) evt.keyCode=48
+	if(ggg==83) evt.keyCode=49
+	if(ggg==65) evt.keyCode=50
+	if(ggg==68) evt.keyCode=51
+	if(ggg==32) evt.keyCode=52
    if(evt.keyCode >= 48 && evt.keyCode<=52){
+	   $("cz").text("当前操作:"+gg[evt.keyCode]);
     $.post({url:"submit.php",
     data:{"passwd": GetQueryString("passwd"),"type":"koishi","nr":evt.keyCode-48},success:function(data)
     {
