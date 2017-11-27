@@ -90,5 +90,4 @@ function nextRound()
     setTimeout("nextRound()", 1000);
     }
     nextRound();
-}
     </script>
