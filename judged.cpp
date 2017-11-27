@@ -16,8 +16,10 @@ int main()
 		ifstream infile; 
 		infile.open("task.txt");
 		string a,b,c,d;
+		bool have_task_flag=false; 
     	while(infile>>a>>b>>c>>d)
     	{
+    		have_task_flag=true;
 			#if defined(__linux__)
 			system("cp ./code/koishi/"+a+".exe ./runner/koishi.exe");
 			system("cp ./code/satori/"+b+".exe ./runner/satori.exe");
@@ -31,6 +33,7 @@ int main()
     	infile.close(); 
     	ofstream fileout("task.txt",ios::trunc);
     	fileout.close();
+    	if(have_task_flag)
 		cout<<"DONE"<<endl;
 		#if defined(__linux__)
 		system("sleep 2s");

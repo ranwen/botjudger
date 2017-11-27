@@ -4,6 +4,12 @@ runner/satori.exe
 runner/satori.tmp
 runner/koishi.exe
 runner/koishi.tmp
+humanrunner/koishiin.txt
+humanrunner/satoriin.txt
+humanrunner/satorimap.txt
+humanrunner/koishimap.txt
+humanrunner/satori.exe
+humanrunner/koishi.exe
 runner/judge.exe
 runner/judge
 humanrunner/satori.exe
@@ -14,6 +20,7 @@ humanrunner/judge.exe
 humanrunner/judge
 judged.exe
 source/
+MinGW64/
 out.txt
 config.php
-MinGW64/
+passwd
