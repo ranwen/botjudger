@@ -131,6 +131,8 @@ void Game::runGame()
 	FileManager::deleteFile("koishi.out");
 	FileManager::deleteFile("koishi.tmp");
 	FileManager::deleteFile("satori.tmp");
+	FileManager::deleteFile("koishimap.txt");
+	FileManager::deleteFile("satorimap.txt");
 }
 void Game::initGame(json parameter)
 {

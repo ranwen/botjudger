@@ -103,7 +103,12 @@ function GetQueryString(name)
         {
 console.log(data);
         start(data);
-        }});
+        },
+error: function (jqXHR, textStatus, errorThrown) 
+{
+$("#mess").text("游戏结束");
+}
+		});
         setTimeout("fuck()", 1000);
     }
     fuck();

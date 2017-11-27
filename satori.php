@@ -99,12 +99,17 @@ function GetQueryString(name)
 }
     function fuck()
     {
-        $.get({url:"humanrunner/satorimap.txt",
-        success : function(data)
-        {
-console.log(data);
-        start(data);
-        }});
+		        $.get({url:"humanrunner/koishimap.txt",
+						        success : function(data)
+								        {
+										console.log(data);
+										        start(data);
+												        },
+error: function (jqXHR, textStatus, errorThrown) 
+{
+$("#mess").text("游戏结束");
+}
+		});
         setTimeout("fuck()", 1000);
     }
     fuck();
