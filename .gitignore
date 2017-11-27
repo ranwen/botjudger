@@ -6,6 +6,12 @@ runner/koishi.exe
 runner/koishi.tmp
 runner/judge.exe
 runner/judge
+humanrunner/satori.exe
+humanrunner/satori.tmp
+humanrunner/koishi.exe
+humanrunner/koishi.tmp
+humanrunner/judge.exe
+humanrunner/judge
 judged.exe
 source/
 out.txt
